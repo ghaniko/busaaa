@@ -1,0 +1,29 @@
+*{
+    margin: auto;
+    padding:0;
+}
+div {
+    font-size:36px;
+    border: 9px solid;
+    border-color:blue;
+    width: 522px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    }
+div:nth-last-of-type(1){
+    background-color: lightblue;
+}
+div:nth-last-of-type(2){
+    background-color: red;
+}
+
+    h1 {
+        color: white;
+        width: 522px;
+        height: 100px;
+        margin:0;
+        line-height: 100px;
+    }
+    
+    

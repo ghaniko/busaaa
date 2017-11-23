@@ -1,0 +1,14 @@
+h1 {
+    color:red;
+}
+h2 {
+    color: purple;
+}
+ol {
+    color: pink;
+    text-decoration: underline;
+}
+     ol li:last-of-type {
+        color: grey;
+        text-decoration: underline;
+    }
