@@ -1,0 +1,48 @@
+/*body{
+    background-color: green;
+}
+*/
+
+.main { 
+    margin: 5% 10% 10% 10%;
+    padding: 0%; 
+    border: 1px solid green;
+    background-color: green;
+    width: 60%;     
+    height: 700px;
+    }
+    .up { 
+        margin: 2% 0 5%  0;
+        padding: 0;
+        border: 10px solid red;
+        background-color: yellow;
+        width: 80%-20px;
+        height: 15%;
+        }
+    .container { 
+        width: 80%-20px;
+        height: 50%;
+        } 
+        .middle { 
+            margin-right: -4px;
+            padding: 0;
+            border: 10px solid red;
+            background-color: yellow;
+            width: 45.5%; 
+            height: 90%;
+            display:inline-block;
+            }  
+    .down { 
+        margin: 2% 0 5%  0;
+        padding: 0;
+        border: 10px solid red;
+        background-color: yellow;
+        width: 80%-20px; 
+        height: 15%;
+        }  
+    /* border-box {
+        width: 60%;
+        height: 100px;
+        border-width: 10px;
+        background-color: yellow;
+    } */
