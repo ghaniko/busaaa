@@ -1,4 +1,4 @@
-public class DrawSquare {
+public class DrawDiagonal {
     public static void main(String[] args) {
         int num = 7;
         int i;
@@ -13,14 +13,20 @@ public class DrawSquare {
             }
             else {
                 System.out.print("%");
-                for (k = 0; k < num - 2; k++) {
+
+                for (k = 1; k < i; k++) {
                     System.out.print(" ");
                 }
+
                 System.out.print("%");
-             System.out.println();
+
+                for (k = 0; k < num - i - 2; k++) {
+                    System.out.print(" ");
+                }
+
+                System.out.print("%");
+                System.out.println();
             }
         }
-
-
     }
 }
