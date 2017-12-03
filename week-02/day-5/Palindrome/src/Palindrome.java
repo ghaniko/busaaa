@@ -1,15 +1,26 @@
+import java.lang.reflect.Array;
 import java.util.*;
 public class Palindrome {
     public static void main(String[] args) {
-        String firstString = "string";
-        palindrome(firstString);
+        System.out.println(palindrome(askForAString()));
     }
 
-    private static void palindrome(String myString) {
-        String newString;
-        for (int i = 0; i < myString.length(); i++) {
-            newString = "" + myString.charAt(i) + myString.charAt(myString.length() - 1 - i);
-            System.out.println(newString);
+    private static String askForAString() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give any word, I'll give you the palindrome for it: ");
+        String someText = scanner.next();
+        return someText;
+    }
+
+
+    private static String palindrome(String firstString) {
+
+        String helpString = firstString + firstString;
+        char[] helpStringArray = helpString.toCharArray();
+        for (int i = 0; i < helpStringArray.length / 2; i++) {
+            helpStringArray[helpStringArray.length - i -1] = helpStringArray[i];
         }
+        String palindromeString = new String(helpStringArray);
+        return palindromeString;
     }
 }
