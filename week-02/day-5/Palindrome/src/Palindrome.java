@@ -11,6 +11,7 @@ public class Palindrome {
         String someText = scanner.next();
         return someText;
     }
+    
 
 
     private static String palindrome(String firstString) {
