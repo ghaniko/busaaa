@@ -35,3 +35,40 @@ public class Doubled {
 
   }
 }
+
+  public static void main(String[] args) {
+
+
+    String directionX = "";
+    String directionDiagonal = "";
+
+    for (int i = 0; i < Math.abs(Math.abs(lightX - initialTX) - Math.abs(lightY - initialTY); i = i + 1)){
+
+      System.out.println(westEast(lightX, initialTX));
+    }
+    for (int j = 0; j < Math.abs(lightY - initialTY); j = j + 1) {
+      System.out.println("SW");
+    }
+
+  public static String westEast(int lightX, int initialTX) {
+    if (lightX - initialTX > 0) {
+      return "W";
+    } else {
+      return "E";
+    }
+  }
+  public static String northSouth(int lightY, int initialTY, int lightX, int initialTX ){
+    if (lightY - initialTY > 0 && lightX - initialTX > 0){
+      return "SW"
+    }
+    else if (lightY - initialTY < 0 && lightX - initialTX > 0){
+      return "NW";
+    }
+    else if (lightY - initialTY < 0 && lightX - initialTX < 0){
+      return "NE";
+    }
+    else{
+      return "SE";
+    }
+  }
+}
