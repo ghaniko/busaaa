@@ -7,55 +7,36 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class ReplicateSquares {
   static Graphics g;
   public static void mainDraw(Graphics graphics){
-    // reproduce this:
-    // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/super-hexagon/r6.gif]
-    int myX = 150;
-    int myY = 30;
-    int mySize = 10;
-    int sideSize = 7;
 
-    for (int i = 0; i < sideSize ; i++) {
-      for (int j = 0; j < i + 1; j++) {
-        drawHexagon(myX + 3 * j * mySize, myY, mySize);
-      }
-      myX = myX - 3 * mySize / 2;
-      myY = myY + mySize;
-    }
+    int mySize = 600;
+    int myX = mySize / 2;
+    int myY = mySize / 2;
 
-    myX = myX + 2 * mySize;
-
-    for (int i = 0; i < sideSize - 1; i++) {
-      for (int j = 0; j < sideSize - 1; j++) {
-        drawHexagon(myX + mySize + 3 * j * mySize, myY, mySize);
-      }
-      myX = myX - mySize / 2;
-      myY = myY + mySize;
-      for (int k = 0; k < sideSize; k++) {
-        drawHexagon(myX + 3 * k * mySize, myY, mySize);
-      }
-      myX = myX + mySize / 2;
-      myY = myY + mySize;
-    }
-
-    myX = myX + mySize;
-
-    for (int i = sideSize - 2; i > - 1; i--) {
-      for (int j = 0; j < i + 1; j++) {
-        drawHexagon(myX + 3 * j * mySize, myY, mySize);
-      }
-      myX = myX + 3 * mySize / 2;
-      myY = myY + mySize;
-    }
-
-
+    g.setColor(Color.YELLOW);
+    g.fillRect(0, 0, mySize, mySize);
+    g.setColor(Color.BLACK);
+    g.drawRect(0, 0, mySize, mySize);
+    drawLines(myX, myY, mySize);
 
   }
 
-  private static void drawSquares(int x, int size , int division) {
-    g.fillRect(x - 5, x - 5, size + 10, size + 10);
-    g.drawRect(x, x, size, size);
+   private static void drawLines(int origX, int origY, int size) {
+    g.setColor(Color.BLACK);
+    if (size > 1) {
 
+      g.drawLine(origX - size / 6, origY - size / 2, origX - size / 6, origY + size / 2);
+      g.drawLine(origX + size / 6, origY - size / 2, origX + size / 6, origY + size / 2);
+      g.drawLine(origX - size / 2, origY - size / 6, origX + size / 2, origY - size / 6);
+      g.drawLine(origX - size / 2, origY + size / 6, origX + size / 2, origY + size / 6);
 
+      drawLines( origX, origY, size / 3);
+
+      drawLines( origX + size / 3, origY + size / 3, size / 3);
+      drawLines( origX - size / 3, origY - size / 3, size / 3);
+      drawLines( origX - size / 3, origY + size / 3, size / 3);
+      drawLines( origX + size / 3, origY - size / 3, size / 3);
+
+    }
   }
 
   //    Don't touch the code below
