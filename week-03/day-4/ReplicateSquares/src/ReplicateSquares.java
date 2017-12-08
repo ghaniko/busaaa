@@ -29,7 +29,7 @@ public class ReplicateSquares {
       g.drawLine(origX - size / 2, origY - size / 6, origX + size / 2, origY - size / 6);
       g.drawLine(origX - size / 2, origY + size / 6, origX + size / 2, origY + size / 6);
 
-      drawLines( origX, origY, size / 3);
+
 
       drawLines( origX + size / 3, origY + size / 3, size / 3);
       drawLines( origX - size / 3, origY - size / 3, size / 3);
