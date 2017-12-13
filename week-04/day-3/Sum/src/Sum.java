@@ -4,6 +4,7 @@ public class Sum {
   int sum = 0;
 
   public Sum(ArrayList<Integer> myList) {
+
     this.myList = myList;
   }
 
