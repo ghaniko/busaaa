@@ -5,5 +5,5 @@ public class Flower {
   public double waterFlower(double wateringAmount){
     currentWater = currentWater + 0.75 * wateringAmount;
   }
-   
+
 }
