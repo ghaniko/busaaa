@@ -1,9 +1,8 @@
-public class Flower {
-  String color;
-  double currentWater;
-
-  public double waterFlower(double wateringAmount){
-    currentWater = currentWater + 0.75 * wateringAmount;
+public class Flower extends Plant {
+  public Flower(String name, String color, float currentWater) {
+    super(name, color, currentWater);
+    thirstyThreshold = 5;
+    absorbingCapacity = 0.75f;
   }
-
 }
+

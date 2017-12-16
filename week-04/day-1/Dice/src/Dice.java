@@ -15,10 +15,12 @@ public class Dice {
   }
 
   public int[] getCurrent() {
+
     return dices;
   }
 
   public int getCurrent(int i) {
+
     return dices[i];
   }
 

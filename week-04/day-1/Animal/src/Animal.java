@@ -3,6 +3,7 @@ public class Animal {
   int thirst = 50;
 
   public void eat(){
+
     hunger -= 1;
   }
   public void drink(){

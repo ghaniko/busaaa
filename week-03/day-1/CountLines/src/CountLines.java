@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class CountLines {
   public static void main(String[] args) {
+
     countLines();
   }
 

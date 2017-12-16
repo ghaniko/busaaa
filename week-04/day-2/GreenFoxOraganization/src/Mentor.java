@@ -15,6 +15,7 @@ public class Mentor extends Person {
   }
 
   public Mentor() {
+
     level = "intermediate";
   }
 }

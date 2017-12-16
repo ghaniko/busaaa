@@ -5,7 +5,8 @@ import java.util.List;
 
 public class PrintEachLine {
   public static void main(String[] args) {
-   readAllText();
+
+    readAllText();
   }
 
   public static void readAllText() {

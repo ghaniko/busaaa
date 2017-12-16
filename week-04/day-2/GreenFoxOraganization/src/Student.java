@@ -12,6 +12,7 @@ public class Student extends Person {
 
   }
   public int skipDays(int numberOfDays){
+
     return skippedDays = skippedDays + numberOfDays;
   }
   public Student(String name, int age, String gender, String previousOrganization) {
