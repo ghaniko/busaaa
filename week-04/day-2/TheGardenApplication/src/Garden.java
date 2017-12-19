@@ -14,14 +14,14 @@ public class Garden {
     }
     System.out.println();
 
-    waterPlant(20, plants, numberOfThirstyPlants(plants));
+    waterPlant(20, plants);
 
     for (Plant plant : plants) {
       plant.introduce();
     }
     System.out.println();
 
-    waterPlant(40, plants, numberOfThirstyPlants(plants));
+    waterPlant(40, plants);
 
     for (Plant plant : plants) {
       plant.introduce();
@@ -29,12 +29,12 @@ public class Garden {
 
   }
 
-  public static void waterPlant(float wateringAmount, ArrayList<Plant> bunchOfPlants, int numberOfThirstyPlants) {
+  public static void waterPlant(float wateringAmount, ArrayList<Plant> bunchOfPlants) {
     System.out.println("Watering with " + wateringAmount);
     for (int i = 0; i < bunchOfPlants.size(); i++) {
       if (bunchOfPlants.get(i).currentWater < bunchOfPlants.get(i).thirstyThreshold){
         bunchOfPlants.get(i).currentWater = bunchOfPlants.get(i).currentWater
-                + bunchOfPlants.get(i).absorbingCapacity * wateringAmount / numberOfThirstyPlants;
+                + bunchOfPlants.get(i).absorbingCapacity * wateringAmount / numberOfThirstyPlants(bunchOfPlants);
       }
     }
   }
