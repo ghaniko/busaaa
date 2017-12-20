@@ -16,7 +16,7 @@ public class Board extends JComponent implements KeyListener {
   Boss myBoss = new Boss();
   int numberOfMonsters = 4 + (int) (Math.random() * 3);
   ArrayList<Monster> groupOfMonsters = new ArrayList<>();
-
+  int numberOfKeypresses;
 
   public void createMonsterGroup(ArrayList groupOfMonsters, int numberOfMonsters){
     for (int i = 0; i < numberOfMonsters ; i++) {
@@ -36,8 +36,8 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
 
-    String fileNameOfTheStoredBoard = "gameStore.txt";
-    initialScreen.drawScreen(graphics, fileNameOfTheStoredBoard);
+    //String fileNameOfTheStoredBoard = "gameStore.txt";
+    //initialScreen.drawScreen(graphics, fileNameOfTheStoredBoard);
 
     myHero.initializePositionOfCharacter(graphics);
     myBoss.initializePositionOfCharacter(graphics);
@@ -82,8 +82,16 @@ public class Board extends JComponent implements KeyListener {
   // But actually we can use just this one for our goals here
   @Override
   public void keyReleased(KeyEvent e) {
-    myHero.move();
-
+    numberOfKeypresses++;
+    myHero.move(e);
+    if(numberOfKeypresses % 2 == 0){
+      myBoss.move(e);
+        for (int i = 0; i < numberOfMonsters; i++) {
+          groupOfMonsters.get(i).move(e);
+        }
+    }
+    repaint();
+  }
 
    /* if (e.getKeyCode() == KeyEvent.VK_UP && heroY != 0) {
       heroY -= 70;
@@ -97,6 +105,4 @@ public class Board extends JComponent implements KeyListener {
 
 
     // and redraw to have a new picture with the new coordinates
-    repaint();
-  }
 }

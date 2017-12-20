@@ -18,7 +18,7 @@ public class GameCharacter {
   Screen screenElement = new Screen();
   int tileSize = screenElement.tileSize;
 
-  public GameCharacter(String name, int currentXOfCharacter, int currentYOfCharacter, int maxLevel, int currentLevel, int maxHealthPoints, int currentHealthPoints, int defendPoints, int strikePoint, boolean isDead, String fileNameOfCharacter) {
+  /*public GameCharacter(String name, int currentXOfCharacter, int currentYOfCharacter, int maxLevel, int currentLevel, int maxHealthPoints, int currentHealthPoints, int defendPoints, int strikePoint, boolean isDead, String fileNameOfCharacter) {
     this.name = name;
     this.currentXOfCharacter = currentXOfCharacter;
     this.currentYOfCharacter = currentYOfCharacter;
@@ -30,7 +30,7 @@ public class GameCharacter {
     this.strikePoint = strikePoint;
     this.isDead = isDead;
     this.fileNameOfCharacter = fileNameOfCharacter;
-  }
+  }*/
 
   //Ez ide kell ???
   public void battle() {
@@ -49,13 +49,13 @@ public class GameCharacter {
     int[] helpArrayRight = {currentXOfCharacter + tileSize, currentYOfCharacter};
     int[] helpArrayLeft = {currentXOfCharacter - tileSize, currentYOfCharacter};
     if (e.getKeyCode() == KeyEvent.VK_UP && currentYOfCharacter != 0 && !screenElement.getPositionOfWalls().contains(helpArrayUp)){
-      currentYOfCharacter -= tileSize;
+      this.currentYOfCharacter -= tileSize;
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentYOfCharacter != 9 * tileSize && !screenElement.getPositionOfWalls().contains(helpArrayDown)) {
-      currentYOfCharacter += tileSize;
+      this.currentYOfCharacter += tileSize;
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentXOfCharacter != 9 * tileSize && !screenElement.getPositionOfWalls().contains(helpArrayRight)) {
-      currentXOfCharacter += tileSize;
+      this.currentXOfCharacter += tileSize;
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentXOfCharacter != 0 && !screenElement.getPositionOfWalls().contains(helpArrayLeft)) {
-      currentXOfCharacter -= tileSize;
+      this.currentXOfCharacter -= tileSize;
     }
   }
   public void changeLevel(){
