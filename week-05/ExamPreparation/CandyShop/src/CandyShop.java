@@ -8,6 +8,7 @@ public class CandyShop {
   static final Lollipop LOLLIPOP = new Lollipop();
 
 
+
   public CandyShop(double sugarAmount) {
     this.sugarAmount = sugarAmount;
     this.income = income;
@@ -39,7 +40,7 @@ public class CandyShop {
   public void raise(double amountToBeRaisedWith) {
 
     LOLLIPOP.price += amountToBeRaisedWith * LOLLIPOP.price / 100;
-    CANDY.price += amountToBeRaisedWith * CANDY.price / 100;
+    //CANDY.price += amountToBeRaisedWith * CANDY.price / 100;
 
   }
 
