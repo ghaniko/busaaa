@@ -36,8 +36,8 @@ public class Board extends JComponent implements KeyListener {
   public void paint(Graphics graphics) {
     super.paint(graphics);
 
-    //String fileNameOfTheStoredBoard = "gameStore.txt";
-    //initialScreen.drawScreen(graphics, fileNameOfTheStoredBoard);
+    String fileNameOfTheStoredBoard = "gameStore.txt";
+    initialScreen.drawScreen(graphics, fileNameOfTheStoredBoard);
 
     myHero.initializePositionOfCharacter(graphics);
     myBoss.initializePositionOfCharacter(graphics);

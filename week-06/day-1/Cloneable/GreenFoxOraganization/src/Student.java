@@ -24,4 +24,8 @@ public class Student extends Person implements Cloneable {
     skippedDays = 0;
   }
 
+  @Override
+  protected Student clone() throws CloneNotSupportedException {
+    return (Student) super.clone();
+  }
 }
