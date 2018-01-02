@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Fleet {
-  private ArrayList<Thing> things;
+  public ArrayList<Thing> things;
 
   public Fleet() {
     things = new ArrayList<>();
@@ -17,5 +17,9 @@ public class Fleet {
       result += (i+1) + ". " + things.get(i) + "\n";
     }
     return result;
+  }
+
+  public ArrayList<Thing> getThings() {
+    return things;
   }
 }
