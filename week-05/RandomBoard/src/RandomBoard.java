@@ -6,7 +6,7 @@ public class RandomBoard {
   public static void main(String[] args) {
     int width = 8;
     int height = 8;
-    int numberOfTiles = 12;
+    int numberOfTiles = 52;
     int initialRandomPosition;
     int randomIndex;
     int randomDirection;
@@ -55,8 +55,9 @@ public class RandomBoard {
     }
     //Transform it to an uploadable format
     System.out.println(actualPositionOfTiles);
-    decreaseAllElement(actualPositionOfTiles, width);
     Collections.sort(actualPositionOfTiles);
+    System.out.println(actualPositionOfTiles);
+
     System.out.println(Arrays.toString(transformToArray(transformToString(transformToCharArray(actualPositionOfTiles, width, height)), width, height)));
   }
 
@@ -98,9 +99,9 @@ public class RandomBoard {
     return inputArrayList;
   }
   public static char[] transformToCharArray(ArrayList<Integer> arrayListToBeTransformed, int width, int height) {
-    char[] helpCharArray = new char[width * height];
+    char[] helpCharArray = new char[(width + 2) * (height + 2)];
 
-    for (int i = 0; i < width * height; i++) {
+    for (int i = 0; i < (width + 2) * (height + 2); i++) {
       if (arrayListToBeTransformed.contains(i + 1)) {
         helpCharArray[i] = 't';
       } else {
@@ -118,9 +119,9 @@ public class RandomBoard {
     return stringToBeSplit;
   }
   public static String[] transformToArray(String stringToBeSplit, int width, int height){
-    String[] stringToBeReadIn = new String[height];
+    String[] stringToBeReadIn = new String[height + 2];
     for (int i = 0; i < stringToBeReadIn.length ; i++) {
-      stringToBeReadIn[i] = stringToBeSplit.substring(i * width, (i + 1) * width);
+      stringToBeReadIn[i] = stringToBeSplit.substring(i * (width + 2), (i + 1) * (width + 2));
     }
     return stringToBeReadIn;
   }

@@ -39,12 +39,12 @@ public class Board extends JComponent implements KeyListener {
     String fileNameOfTheStoredBoard = "gameStore.txt";
     initialScreen.drawScreen(graphics, fileNameOfTheStoredBoard);
 
-    myHero.initializePositionOfCharacter(graphics);
-    myBoss.initializePositionOfCharacter(graphics);
-    createMonsterGroup(groupOfMonsters, numberOfMonsters);
-    for (int i = 0; i < numberOfMonsters; i++) {
-      groupOfMonsters.get(i).initializePositionOfCharacter(graphics);
-    }
+    //myHero.initializePositionOfCharacter(graphics);
+    //myBoss.initializePositionOfCharacter(graphics);
+    //createMonsterGroup(groupOfMonsters, numberOfMonsters);
+    //for (int i = 0; i < numberOfMonsters; i++) {
+      //groupOfMonsters.get(i).initializePositionOfCharacter(graphics);
+    //}
   }
 
 
