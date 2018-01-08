@@ -9,7 +9,7 @@ public class RandomBoard2 {
     ArrayList<Integer> forbiddenPositionOfTiles = new ArrayList<>();
     ArrayList<Integer> actualTiles = new ArrayList<>();
 
-    newRandomTile = 1 +(int) (Math.random() * width * height);
+    newRandomTile = 1 + (int) (Math.random() * width * height);
     System.out.println(newRandomTile);
     actualTiles.add(newRandomTile);
     forbiddenPositionOfTiles.add(newRandomTile);
@@ -18,19 +18,8 @@ public class RandomBoard2 {
       newRandomTile = 1 + (int) (Math.random() * width * height);
     }while(forbiddenPositionOfTiles.contains(newRandomTile));
     System.out.println(newRandomTile);
-
+    System.out.println(Math.min(Math.min(Math.min(4, 5), 6), 7));
     System.out.println(minXDistancePosition(newRandomTile, actualTiles, width));
-
-
-    forbiddenPositionOfTiles.add(5);
-    forbiddenPositionOfTiles.add(25);
-    forbiddenPositionOfTiles.add(50);
-    forbiddenPositionOfTiles.add(75);
-    do{
-      newRandomTile = 1 + (int) (Math.random() * 100);
-    }while(forbiddenPositionOfTiles.contains(newRandomTile));
-    System.out.println(newRandomTile);
-
   }
 
   private static int minXDistancePosition(int newRandomTile, ArrayList<Integer> actualTiles, int width) {
