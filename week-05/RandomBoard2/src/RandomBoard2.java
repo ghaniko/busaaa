@@ -1,33 +1,67 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class RandomBoard2 {
   public static void main(String[] args) {
+    int initialRandomTile;
     int newRandomTile;
-    int width = 10;
-    int height = 10;
-    int numberOfTiles = 52;
-    ArrayList<Integer> forbiddenPositionOfTiles = new ArrayList<>();
+    int width = 6;
+    int height = 6;
+    int minNumberOfTiles = 15;
     ArrayList<Integer> actualTiles = new ArrayList<>();
 
-    newRandomTile = 1 + (int) (Math.random() * width * height);
-    System.out.println(newRandomTile);
-    actualTiles.add(newRandomTile);
-    forbiddenPositionOfTiles.add(newRandomTile);
+    initialRandomTile = (int) (Math.random() * width * height);
+    actualTiles.add(initialRandomTile);
 
-    do{
-      newRandomTile = 1 + (int) (Math.random() * width * height);
-    }while(forbiddenPositionOfTiles.contains(newRandomTile));
-    System.out.println(newRandomTile);
-    System.out.println(Math.min(Math.min(Math.min(4, 5), 6), 7));
-    System.out.println(minXDistancePosition(newRandomTile, actualTiles, width));
+    while(actualTiles.size() < minNumberOfTiles){
+      do{
+        newRandomTile = (int) (Math.random() * width * height);
+      }while(actualTiles.contains(newRandomTile));
+      pathBuilder(actualTiles, findLEndPoint(actualTiles, newRandomTile, width), newRandomTile, width);
+    }
+    System.out.println(actualTiles);
+    Collections.sort(actualTiles);
+    removeDuplicate(actualTiles);
+    System.out.println(actualTiles);
   }
 
-  private static int minXDistancePosition(int newRandomTile, ArrayList<Integer> actualTiles, int width) {
-    int XDistance = 10000;
-    for (int i = 0; i < actualTiles.size(); i++) {
-      if(Math.abs(actualTiles.get(i) % width - newRandomTile % width) < XDistance){
-        XDistance = Math.abs(actualTiles.get(i) % width - newRandomTile % width);
+  private static ArrayList removeDuplicate(ArrayList<Integer> actualTiles) {
+    for (int i = 0; i < actualTiles.size() - 1; i++) {
+      if(actualTiles.get(i) == actualTiles.get(i + 1)){
+        actualTiles.remove(i);
       }
-    }return XDistance;
+    }
+    return actualTiles;
+  }
+
+  private static void pathBuilder(ArrayList<Integer> actualTiles, int tempTile, int newRandomTile, int width) {
+    for (int i = 0; i <= Math.abs(tempTile / width - newRandomTile / width); i++) {
+      if (tempTile - newRandomTile < 0) {
+        actualTiles.add(newRandomTile - i * width);
+      } else {
+        actualTiles.add(newRandomTile + i * width);
+      }
+    }
+    for (int j = 1; j < Math.abs(tempTile % width - newRandomTile % width); j++) {
+      if(tempTile % width - newRandomTile % width < 0){
+        actualTiles.add(tempTile + j);
+      }else {
+        actualTiles.add(tempTile - j);
+      }
+    }
+  }
+
+  private static int findLEndPoint(ArrayList<Integer> actualTiles, int newRandomTile, int width) {
+    int tempTile = 0;
+    int distance = 10000;
+    for (int i = 0; i < actualTiles.size() ; i++) {
+      if(Math.abs(actualTiles.get(i) % width - newRandomTile % width) +
+              Math.abs(actualTiles.get(i) / width - newRandomTile / width) < distance){
+        distance = Math.abs(actualTiles.get(i) % width - newRandomTile % width) +
+                Math.abs(actualTiles.get(i) / width - newRandomTile / width);
+        tempTile = actualTiles.get(i);
+      }
+    }
+    return tempTile;
   }
 }
