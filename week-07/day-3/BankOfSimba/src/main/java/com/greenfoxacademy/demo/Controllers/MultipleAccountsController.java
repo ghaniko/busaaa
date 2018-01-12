@@ -30,13 +30,13 @@ public class MultipleAccountsController {
   }
 
   @RequestMapping(value = "/list/{accountIndex}", method = RequestMethod.POST)
-  public ModelAndView raise(@PathVariable int accountIndex){
+  public String raise(@PathVariable int accountIndex){
     if(animals.get(accountIndex).isKing()){
       animals.get(accountIndex).setBalance(animals.get(accountIndex).getBalance() + 100);
     } else {
       animals.get(accountIndex).setBalance(animals.get(accountIndex).getBalance() + 10);
     }
-    return new ModelAndView("redirect:/list");
+    return new String("redirect:/list");
   }
 }
 
