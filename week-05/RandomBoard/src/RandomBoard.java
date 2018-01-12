@@ -4,9 +4,9 @@ import java.util.Collections;
 
 public class RandomBoard {
   public static void main(String[] args) {
-    int width = 8;
-    int height = 8;
-    int numberOfTiles = 52;
+    int width =8;
+    int height =8;
+    int numberOfTiles = 39;
     int initialRandomPosition;
     int randomIndex;
     int randomDirection;

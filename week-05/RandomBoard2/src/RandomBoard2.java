@@ -1,13 +1,14 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class RandomBoard2 {
   public static void main(String[] args) {
     int initialRandomTile;
     int newRandomTile;
-    int width = 6;
-    int height = 6;
-    int minNumberOfTiles = 15;
+    int width = 10;
+    int height = 10;
+    int minNumberOfTiles = 60;
     ArrayList<Integer> actualTiles = new ArrayList<>();
 
     initialRandomTile = (int) (Math.random() * width * height);
@@ -23,6 +24,8 @@ public class RandomBoard2 {
     Collections.sort(actualTiles);
     removeDuplicate(actualTiles);
     System.out.println(actualTiles);
+
+    System.out.println(Arrays.toString(transformToArray(transformToString(transformToCharArray(actualTiles, width, height)), width, height)));
   }
 
   private static ArrayList removeDuplicate(ArrayList<Integer> actualTiles) {
@@ -63,5 +66,32 @@ public class RandomBoard2 {
       }
     }
     return tempTile;
+  }
+  public static char[] transformToCharArray(ArrayList<Integer> arrayListToBeTransformed, int width, int height) {
+    char[] helpCharArray = new char[(width) * (height)];
+
+    for (int i = 0; i < (width) * (height); i++) {
+      if (arrayListToBeTransformed.contains(i)) {
+        helpCharArray[i] = 't';
+      } else {
+        helpCharArray[i] = 'w';
+      }
+    }
+    return helpCharArray;
+  }
+  public static String transformToString(char[] helpCharArray) {
+    StringBuilder myStringBuilder = new StringBuilder();
+    for (int i = 0; i < helpCharArray.length; i++) {
+      myStringBuilder.append(helpCharArray[i]);
+    }
+    String stringToBeSplit = myStringBuilder.toString();
+    return stringToBeSplit;
+  }
+  public static String[] transformToArray(String stringToBeSplit, int width, int height){
+    String[] stringToBeReadIn = new String[height];
+    for (int i = 0; i < stringToBeReadIn.length ; i++) {
+      stringToBeReadIn[i] = stringToBeSplit.substring(i * (width), (i + 1) * (width));
+    }
+    return stringToBeReadIn;
   }
 }

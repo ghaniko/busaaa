@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
-</head>
-<body>
-<table>
-    <tr>
-        <th>NAME</th>
-        <th>BALANCE</th>
-        <th>TYPE</th>
-    </tr>
-    <tr th:each="animal : ${myAnimals}">
-        <td th:text="${animal.getName()}"></td>
-        <td th:text="${animal.getBalance()}"></td>
-        <td th:text="${animal.getAnimalType()}"></td>
-    </tr>
-</table>
-</body>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf Exercise #</title>
+        <link rel="stylesheet" th:href="@{/style.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <table>
+            <tr style="background-color: orangered; font-size: 35px">
+                <th>INDEX</th>
+                <th>NAME</th>
+                <th>BALANCE</th>
+                <th>TYPE</th>
+                <th>KING</th>
+                <th>BEHAVIOUR</th>
+            </tr>
+            <tr align="center" style="background-color: yellow; font-size: 20px; color: blue" th:each="animal : ${myAnimals}">
+                <td th:text="${animalStat.index + 1}"></td>
+                <td th:text="${animal.getName()}"></td>
+                <td th:text="${animal.getBalance()}"></td>
+                <td th:text="${animal.getAnimalType()}"></td>
+                <td>
+                     <span th:if="${animal.isKing()}"  style="font-size: 30px; color: pink" th:text="KING" />
+                     <span th:unless="${animal.isKing()}" th:text="MINON" />
+                </td>
+                <td th:switch="${animal.isGood}">
+                    <span th:case="'Good'" style="color: green" th:text="'Good Guy'" />
+                    <span th:case="'Bad'" style="color: red" th:text="'Bad Guy'" />
+                </td>
+                <td>
+                    <form action="#" th:action="@{/list/} + ${animalStat.index}" method="post">
+                      <input  type="submit" value="raise"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>

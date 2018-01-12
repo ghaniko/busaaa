@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ShowController {
 
-  BankAccount simba = new BankAccount("Simba", 2000, "lion");
+  BankAccount simba = new BankAccount("Simba", 2000, "lion", true, "Good");
 
   @RequestMapping("/show")
   public String show(Model model){
