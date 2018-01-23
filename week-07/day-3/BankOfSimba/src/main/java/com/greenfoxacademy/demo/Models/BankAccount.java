@@ -5,9 +5,6 @@ public class BankAccount {
   private float balance;
   private String animalType;
   private boolean isKing;
-
-
-
   private String isGood;
 
   public BankAccount(String name, float balance, String animalType, boolean isKing, String isGood) {
