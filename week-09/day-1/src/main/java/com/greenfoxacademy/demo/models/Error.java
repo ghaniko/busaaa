@@ -1,6 +1,8 @@
 package com.greenfoxacademy.demo.models;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Error {
   String error;
 

@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 @SpringBootTest(classes = WeekNineDayOneApplication.class)
 @WebAppConfiguration
 @EnableWebMvc
-public class DoublingControllerTest {
+public class DoUntilControllerTest {
   private MockMvc mockMvc;
 
   @Autowired
@@ -39,32 +39,38 @@ public class DoublingControllerTest {
   }
 
   @Test
-  public void testDoubling() throws Exception {
+  public void testDoUntilForSum() throws Exception {
     mockMvc.perform(
-            get("/doubling?input=10.0")
+            post("/dountil/sum")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 10}")
     )
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.result", is(20.0)));
+            .andExpect(jsonPath("$.result", is(55)));
   }
+
   @Test
-  public void testDoublingForEmptyInput() throws Exception {
+  public void testDoUntilForFactor() throws Exception {
     mockMvc.perform(
-            get("/doubling?input=")
+            post("/dountil/factor")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 5}")
     )
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            //.andExpect(jsonPath("$.received", is(10)))
-            .andExpect(jsonPath("$.error", is("Please provide an input!")));
+            .andExpect(jsonPath("$.result", is(120)));
   }
+
   @Test
-  public void testDoublingForFloat() throws Exception {
+  public void testDoUntilError() throws Exception {
     mockMvc.perform(
-            get("/doubling?input=5.3")
+            post("/dountil/factor")
+                    .contentType(MediaType.APPLICATION_JSON)
+
     )
             .andExpect(status().isOk())
             .andExpect(content().contentType("application/json;charset=UTF-8"))
-            //.andExpect(jsonPath("$.received", is(10)))
-            .andExpect(jsonPath("$.result", is(10.6)));
+            .andExpect(jsonPath("$.error", is("Please provide a number!")));
   }
 }

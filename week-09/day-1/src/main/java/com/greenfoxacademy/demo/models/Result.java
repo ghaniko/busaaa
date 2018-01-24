@@ -1,12 +1,12 @@
 package com.greenfoxacademy.demo.models;
 
 public class Result {
-  private int result;
+  private Integer result;
 
   public Result() {
   }
 
-  public Result(int result) {
+  public Result(Integer result) {
     this.result = result;
   }
 
@@ -14,7 +14,7 @@ public class Result {
     return result;
   }
 
-  public void setResult(int result) {
+  public void setResult(Integer result) {
     this.result = result;
   }
 }
