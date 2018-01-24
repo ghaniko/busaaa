@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MainRestController {
+public class DoublingController {
   @GetMapping("/doubling")
-  public Object doubleInput(@RequestParam(value = "input", required = false) Integer number){
+  public Object doubleInput(@RequestParam(value = "input", required = false) Double number){
     if(number == null){
       return new Error("Please provide an input!");
     }
