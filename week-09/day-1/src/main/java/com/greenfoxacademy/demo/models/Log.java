@@ -18,5 +18,47 @@ public class Log {
   @JsonIgnore
   Timestamp createdAt;
   String endpoint;
-  String data; 
+  String data;
+
+  public Log() {
+  }
+
+  public Log(String endpoint, String data) {
+    this.id = id;
+    this.createdAt = createdAt;
+    this.endpoint = endpoint;
+    this.data = data;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public Timestamp getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Timestamp createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getEndpoint() {
+    return endpoint;
+  }
+
+  public void setEndpoint(String endpoint) {
+    this.endpoint = endpoint;
+  }
+
+  public String getData() {
+    return data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
 }

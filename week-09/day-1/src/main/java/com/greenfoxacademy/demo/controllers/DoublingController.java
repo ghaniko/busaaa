@@ -23,6 +23,7 @@ public class DoublingController {
       error.setError("Please provide an input!");
       return error;
     }
+
     return new Doubling(number);
   }
 }
