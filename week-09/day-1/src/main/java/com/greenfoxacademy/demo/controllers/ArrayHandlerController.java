@@ -2,12 +2,17 @@ package com.greenfoxacademy.demo.controllers;
 
 import com.greenfoxacademy.demo.models.*;
 import com.greenfoxacademy.demo.models.Error;
+import com.greenfoxacademy.demo.services.LogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ArrayHandlerController {
+
+  @Autowired
+  LogService logService;
 
   @PostMapping("/arrays")
   public Object arrays(@RequestBody(required = false) WhatAndList whatAndList) {
@@ -19,6 +24,7 @@ public class ArrayHandlerController {
       for (int i = 0; i < whatAndList.getNumbers().length; i++) {
         tempNumber += whatAndList.getNumbers()[i];
       }
+      logService.createLog("sum", "numbers :" + whatAndList.getNumbers());
       return new Result(tempNumber);
     } else if (whatAndList.getWhat().equals("multiply")){
       tempNumber = 1;

@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-  @Autowired
-  Doubling doubling;
-
   @GetMapping("/")
     public String showIndexPage(){
     return "index";
   }
-
-
 }
