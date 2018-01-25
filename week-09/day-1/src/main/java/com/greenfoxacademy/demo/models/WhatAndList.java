@@ -5,13 +5,14 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class NumbersList {
+public class WhatAndList {
+  String what;
   Integer[] numbers;
 
-  public NumbersList() {
+  public WhatAndList() {
   }
 
-  public NumbersList(Integer[] numbers) {
+  public WhatAndList(String what, Integer[] numbers) {
     this.numbers = numbers;
   }
 
@@ -21,5 +22,13 @@ public class NumbersList {
 
   public void setNumbers(Integer[] numbers) {
     this.numbers = numbers;
+  }
+
+  public String getWhat() {
+    return what;
+  }
+
+  public void setWhat(String what) {
+    this.what = what;
   }
 }
