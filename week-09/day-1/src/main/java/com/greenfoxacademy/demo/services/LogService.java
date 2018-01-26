@@ -1,5 +1,6 @@
 package com.greenfoxacademy.demo.services;
 
+import com.greenfoxacademy.demo.models.ListOfLogs;
 import com.greenfoxacademy.demo.models.Log;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +14,5 @@ public interface LogService {
   void deleteLog(int id);
   void addLog(Log log);
   void createLog(String endpoint, String data);
+  ListOfLogs getLogList();
 }
