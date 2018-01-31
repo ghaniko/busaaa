@@ -21,6 +21,13 @@ public class LogServiceImpl implements LogService {
   ListOfLogs listOfLogs;
 
   @Override
+  public ListOfLogs getLogList(){
+    listOfLogs.setEntries(getAllLogs());
+    listOfLogs.setEntryCount(getAllLogs().size());
+    return listOfLogs;
+  }
+
+  @Override
   public List<Log> getAllLogs() {
     return (List<Log>) logRepository.findAll() ;
   }
@@ -50,10 +57,5 @@ public class LogServiceImpl implements LogService {
     addLog(logFactory.createLog(endpoint, data));
   }
 
-  @Override
-  public ListOfLogs getLogList(){
-    listOfLogs.setEntries(getAllLogs());
-    listOfLogs.setEntryCount(getAllLogs().size());
-    return listOfLogs;
-  }
+
 }

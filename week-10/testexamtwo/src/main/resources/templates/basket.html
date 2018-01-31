@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Green Fox Webstore Basket</title>
+</head>
+    <body>
+        <h1>GreenFox Clothes Basket</h1>
+        <table>
+            <tr>
+                <th>Item name</th>
+                <th>Manufacturer</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Sub total</th>
+            </tr>
+            <tbody>
+            <tr th:each="cloth : ${selectedClothes}" th:object="${cloth}">
+                <td th:text="*{ItemName}"></td>
+                <td th:text="*{manufacturer}"></td>
+                <td th:text="*{category}"></td>
+                <td th:text="*{size}"></td>
+                <td th:text="*{inStore}"></td>
+                <!--<td th:text="*{unitSize} * *{inStore}"></td>-->
+                <td th:with="result=${cloth.unitPrice * cloth.inStore}">
+                    <span th:text="${result}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--<form th:action="@{/warehouse}" method="get">
+            <input  value="Back to main" type="submit"/>
+        </form>-->
+        <a href="/warehouse">Back to main</a>
+    </body>
+</html>

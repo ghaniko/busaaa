@@ -12,6 +12,7 @@ public class LogController {
 
   @GetMapping("/log")
   public Object listLogs(){
+
     return logService.getLogList();
   }
 }
