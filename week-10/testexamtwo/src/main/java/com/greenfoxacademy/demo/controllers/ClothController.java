@@ -35,9 +35,9 @@ public class ClothController {
 
   @GetMapping("/warehouse/summary")
   public String showCloths(Model model,
-                           @RequestParam/*(value = "clothItem", required = false)*/ String myClothItem,
-                           @RequestParam/*(value = "clothSize", required = false*/ String myClothSize,
-                           @RequestParam/*(value = "q", required = false)*/ int q) {
+                           @RequestParam/*(name = "clothItem", required = false)*/ String myClothItem,
+                           @RequestParam/*(name = "clothSize", required = false*/ String myClothSize,
+                           @RequestParam/*(name = "q", required = false)*/ int q) {
     List<Cloth> selectedCloth = clothService.findClothWithItemNameAndSize(myClothItem, myClothSize);
     for (int i = 0; i < selectedCloth.size(); i++) {
       selectedCloth.get(i).setInStore(q);

@@ -16,6 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -42,18 +43,19 @@ public class TestexamtwoApplicationTests {
 
 	@Test
 	public void contextLoads() throws Exception {
-		List<Cloth> clothesList = new ArrayList<>();
+
 		Cloth cloth1 = new Cloth(16,"Strecth Steamed Pencil Skirt", "Calvin Klein", "skirts", "s", 39, 0);
 		Cloth cloth2 = new Cloth(18, "Strecth Steamed Pencil Skirt", "Calvin Klein", "skirts", "m", 39, 0);
-		clothesList.add(cloth1);
-		clothesList.add(cloth2);
+		List<Cloth> clothesList = new ArrayList<>(Arrays.asList(cloth1, cloth2));
+/*		clothesList.add(cloth1);
+		clothesList.add(cloth2);*/
 		mockMvc.perform(
 						get("/warehouse/query?price=40&type=lower")
 		)
 						.andExpect(status().isOk())
 						.andExpect(content().contentType("application/json;charset=UTF-8"))
 						.andExpect(jsonPath("$.result", is("ok")))
-		        .andExpect(jsonPath("$.clothes", is(clothesList.get(0))));
+		        .andExpect(jsonPath("$.clothes", is(clothesList)));
 	}
 
 }

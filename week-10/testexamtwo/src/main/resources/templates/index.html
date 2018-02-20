@@ -8,6 +8,7 @@
 <span>
     <form th:action="@{/warehouse/summary}" method="get">
         <select name="myClothItem">
+            <option value="">Select a cloth</option>
             <option  th:each="clothItem : ${myClothItem}" th:value="${clothItem}" th:text="${clothItem}"></option>
         </select>
         <select name="myClothSize">
